@@ -1,0 +1,557 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  background-color: white;
+}
+
+a{
+	text-decoration: none; /*Забираємо підкреслення в усіх посиланнях сайту.*/
+}
+
+/*Налаштовуємо верхню частину сайту: кнопки "Де купити" та "Контакти".*/
+
+.nav_up{ /*Основний вигляд усього контейнеру.*/
+  background-color: #ededed;
+  height: 40px;
+  width: 100%;
+	position: relative;
+  display: inline-block;
+	text-align: right;
+}
+
+.nav_up button{ /*Основні вигляд і розташування кнопок.*/
+  position: relative;
+  display: inline-block;
+  border-radius: 25px;
+  border: none;
+  margin: 10px 10px 0px 0px;
+  padding: 4px 11px 11px 10px;
+  background-color: transparent;
+}
+
+/*Налаштовуємо появу червоної лінії під кнопками під час наведення на них курсора миші.*/
+
+.nav_up button::after{
+  content: '';
+  position: absolute;
+  left: 30%;
+  bottom: 4px;
+  width: 40%;
+  height: 4px;
+  background-color: #e60000;
+  opacity: 0;
+}
+
+.nav_up button:hover::after{
+  opacity: 1;
+}
+
+.nav_up button:hover{ /*Налаштовуємо появу білого тла під час наведення курсора миші.*/
+  border: transparent;
+  background-color: white;
+  border-radius: 6px 6px;
+}
+
+/*Створюємо і оформлюємо віконця, що з'являються під кнопками під час наведення на них курсора миші.*/
+
+.nav_up_content{ 
+	display: none;
+  position: absolute;
+  background-color: #404040;
+  color: white;
+  padding: 5px 20px 9px;
+  margin-top: -5px;
+	font-size: 12px;
+  border-radius: 4px;
+  text-align: right;
+  right: 10px;
+	height: 19px;
+}
+
+.nav_up button:hover + .nav_up_content{
+  display: block;
+  float: right;
+}
+
+/*Задаємо вигляд і розташування для лого сайту і пошукового рядка.*/
+
+#logo{
+  width: 10%;
+  margin-left: 10px;
+	margin-top: 25px;
+}
+
+#search{
+  position: relative;
+	border: 2px solid black;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  margin-left: 150px;
+  top: -17px;
+  font-size: 14px;
+  height: 50px;
+}
+
+#icon{
+	position: relative;
+  right: 40px;
+	bottom: 10px;
+}
+
+/*Навігація.
+Розташовуємо і оформлюємо два її рядки.*/
+
+.up, .down{
+	position: relative;
+  justify-content: center;
+}
+
+.up{
+  height: 10px;
+  text-align: left;
+  padding: 20px;
+  margin-top: -20px;
+}
+
+.down{
+	background-color: #ededed;
+  padding: 20px;
+  margin-top: -5px;
+  height: 15px;
+}
+
+.down a{
+  font-size: 12px;
+}
+
+/*Оформлюємо кнопки навігації.*/
+
+.up button, .down button{
+  border: none;
+	background-color: transparent;
+	display: inline-block;
+  white-space: nowrap;
+  margin: -15px;
+}
+
+.down button{
+  padding-top: 2px;
+  padding-bottom: 15px;
+}
+
+/*Налаштовуємо появу білого тла під час наведення курсора миші.*/
+
+.down button:hover{
+  border: transparent;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+}
+
+/*Налаштовуємо вміст кнопок навігації.*/
+
+.nav_items{
+  font-size: 14px;
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li{
+  list-style-type: none;
+  display: inline;
+  position: relative;
+  transition: width 0.3s;
+}
+
+.nav a{
+  padding: 10px 20px;
+  color: #4e444e;
+}
+
+/*Налаштовуємо появу червоної лінії під кнопками під час наведення на них курсора миші.
+Створюємо анімацію розширення лінії.*/
+
+.nav a::after{
+  content: '';
+  width: 0;
+  height: 4px;
+  background-color: #e60000;
+  position: absolute;
+  left: 50%;
+  bottom: -13px;
+  transition: width 0.3s;
+	transform: translateX(-50%);
+}
+
+.nav a:hover::after{
+  width: 70%;
+	left: 50%;
+}
+
+.underline{
+  position: absolute;
+}
+
+.nav li:hover + .underline{
+  width: 80%;
+  left: 10%;
+}
+
+/*Основний вміст сторінки, вигляд і розташування.*/
+
+main{
+  height: 530px;
+}
+
+header{
+  text-align: center;
+  color: white;
+  margin-top: -15px;
+}
+
+.banner{
+  height: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url('https://rb.gy/v4gfkk');
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  background-size: 1900px 750px; /*задаємо розташування картинки тла*/
+  background-position: -310px;
+}
+
+.banner::before{ /*Налаштовуємо затемнення картинки тла.*/
+  content: "";
+  position: absolute;
+  top: 231px;
+  right: 9px;
+  bottom: 0;
+  left: 9px;
+  height: 720px;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+/*Оформлюємо вигляд і розташування лівої частини основного вмісту сторінки.*/
+
+.banner_text{
+  text-align: left;
+	width: 50%;
+  margin-top: -35px;
+  margin-left: 20px;
+  left: 100px;
+  z-index: 1;
+}
+
+.banner_text h2{
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.banner_text p{
+  margin-bottom: 45px;
+  font-weight: 500;
+}
+
+#btn{
+  color: white;
+  background-color: #294e95;
+  border: 1px solid white;
+  border-radius: 3px;
+  height: 41px;
+  width: 215px;
+	transition: 0.3s all linear;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#btn:hover{ /*Створюємо анімацію при наведенні на кнопку курсора миші.*/
+	transition: 0.3s all linear;
+  background-color: white;
+	color: #294e95;
+	border-color: #294e95;
+}
+
+#btn a{
+  color: white;
+}
+
+/*Оформлюєио вигляд і розташування правої частини основного вмісту сторінки.*/
+
+.banner_buttons{
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.banner_btn{
+  position: relative;
+  width: 49.8%;
+  height: 50%;
+  border-left: 1px solid #fff;
+  border-bottom: 0.5px solid #fff;
+  border-top: 0.5px solid #fff;
+}
+
+.banner_btn p{
+  position: absolute;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/*Налаштовуємо розташування тексту кнопок.*/
+
+#bb1{
+  bottom: 5%;
+  left: 12%;
+}
+
+#bb2{
+  bottom: 5%;
+  left: 25%;
+}
+
+.banner_p_bottom{
+  top: 5%;
+  left: 4.5%;
+}
+
+/*Налаштовуємо зміну тла кнопок на картинки під час наведення курсора миші на кнопки.*/
+
+.banner_btn img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+
+.banner_btn:hover img{
+  opacity: 1;
+  transition: 0.5s all ease;
+}
+
+/*Нижня частина сторінки, її вигляд і розташування.*/
+
+footer{
+  margin-top: 195px;
+  height: 500px;
+  background-color: #ededed;
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ededed;
+  margin-top: -4px;
+  width: 100%;
+  height: 350px;
+  text-align: left;
+}
+
+.footer p{
+  color: #555555;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.footer a{
+  transition: all linear;
+  color: #3a3a3a;
+  margin-top: 8px;
+}
+
+.footer a:hover{ /*Задаємо зміну кольору під час наведення курсора миші на посилання.*/
+  transition: all linear;
+  color: darkblue;
+}
+
+/*Налаштовуємо кнопки соцмереж.*/
+
+.socials{
+  position: absolute;
+  width: 50%;
+  padding-top: 40px;
+  padding-left: 260px;
+}
+
+#facebook, #x, #instagram, #youtube, #telegram{
+  height: 30px;
+  width: 30px;
+  border: none;
+	border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+#facebook:hover, #x:hover, #instagram:hover, #youtube:hover, #telegram:hover{ /*Задаємо анімацію появи тіней при наведенні на кнопки курсора миші.*/
+  box-shadow: 0px 0px 2px 2px lightgrey;
+}
+
+#facebook{
+  background-image: url('https://rb.gy/qen0vx');
+}
+
+#x{
+  background-image: url('https://rb.gy/5co1xc');
+}
+
+#instagram{
+  background-image: url('https://rb.gy/ubl2g1');
+}
+
+#youtube{
+  background-image: url('https://rb.gy/ydeplz');
+}
+
+#telegram{
+  background-color: #294E95;
+  padding-top: 10px;
+}
+
+#tsvg{
+	position: relative;
+  right: 1px;
+	bottom: 5px;
+}
+
+/*Налаштовуємо контейнер кнопки з варіантами відповідей.*/
+
+.select_home{
+  top: -10px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end; 
+  width: 100%;
+  right: 140px;
+}
+
+.select_home p{
+  color: #555555;
+  position: absolute;
+  top: 10px;
+  right: 85px;
+  font-size: 14px;
+}
+
+/*Налаштовуємо кнопку з варіантами відповідей.*/
+
+.home_btn{
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  float: right;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/*Налаштовуємо варіанти відповідей.*/
+
+.home_list{
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 0px 7px 1px lightgrey;
+  list-style-type: none;
+  padding: 0;
+  top: 75px;
+  float: right;
+	z-index: 1;
+}
+
+.home_list li{
+  padding: 8px 32px;
+  border-bottom: 1px solid #ccc;
+}
+
+.home_list li a{
+  text-decoration: none;
+  color: #333;
+}
+
+.home_list li a:hover{ /*Задаємо анімацію зміни кольору під час наведення на варіант відповіді.*/
+  background-color: #f0f0f0;
+}
+
+.home_list, .home_btn{ /*Додаємо ці рядки, щоб усі відповіді з'являлися лише під час їх прокручування, а не одразу.*/
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.home_btn:focus + .home_list,
+.home_list:hover{ /*Показ варіантів відповідей при натисненні на кнопку.*/
+  display: block;
+}
+
+/*Налаштовуємо нижню навігацію, вигляд і розташування.*/
+
+.about, .products, .resource{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.about a, .products a, .resource a{
+  font-size: 11px;
+}
+
+.about{
+  justify-content: left;
+  left: 140px;
+}
+
+.products{
+  justify-content: center;
+  left: 480px;
+}
+
+.resource{
+  justify-content: right;
+  right: 300px;
+}
+
+/*Налаштовуємо кінець сторінки.*/
+
+#copyright{
+  text-align: center;
+  color: #555555;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.footer_end{
+  margin: 0;
+	text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+	font-size: 10px;
+}
+
+.footer_end a{
+  padding: 0px 6px;
+  color: #333333;
+}
+
+#m, #c{
+  border-right: 1px solid black;
+}
