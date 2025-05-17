@@ -1,3 +1,4 @@
+import pprint
 import sqlite3
 
 def create_table():
@@ -15,6 +16,7 @@ def create_table():
             id INTEGER PRIMARY KEY,
             name TEXT,
             desc TEXT,
+            img TEXT,
             price INTEGER,
             category_id INTEGER,
             FOREIGN KEY (category_id) REFERENCES categories(id)
@@ -30,8 +32,9 @@ def fill_item(path_to_db):
     for i in range(n):
         name = input(f"Введіть назву: ")
         desc = input(f"Введіть опис: ")
+        img = input(f"Введіть фото: ")
         price = int(input(f"Введіть ціну: "))
-        cur.execute('''INSERT INTO item (name, desc, price) VALUES (?,?,?,?)''', [name, desc, price])
+        cur.execute('''INSERT INTO item (name, desc, img, price) VALUES (?,?,?,?)''', [name, desc, img, price])
         conn.commit()
     conn.close()
 
@@ -46,7 +49,7 @@ def fill_category(path_to_db):
     conn.close()
 
 create_table()
-fill_category("data_base.db")
+#fill_category("data_base.db")
 fill_item("data_base.db")
 
 def print_items(path_to_db):
@@ -55,8 +58,11 @@ def print_items(path_to_db):
     i = 1
     cur.execute("SELECT * FROM item")
     items = cur.fetchall()
+    pprint.pprint(items)
     for item in items:
-    print(item)
+        print(item)
+
     conn.close()
+    return items
 
 print_items("data_base.db")
